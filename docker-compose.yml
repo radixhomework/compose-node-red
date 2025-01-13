@@ -2,7 +2,7 @@ name: ${STACK_NAME}
 
 services:
   node-red:
-    build: .
+    #build: .
     environment:
       - TZ=Europe/Amsterdam
     ports:
