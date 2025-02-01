@@ -1,6 +1,6 @@
 services:
   node-red:
-    #build: .
+    build: .
     image: nodered/node-red
     environment:
       - TZ=Europe/Amsterdam
