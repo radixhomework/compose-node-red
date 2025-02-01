@@ -1,4 +1,4 @@
-FROM nodered/node-red:
+FROM nodered/node-red:4.0.8
 
 # Install mandatory libraries
 RUN npm install \
