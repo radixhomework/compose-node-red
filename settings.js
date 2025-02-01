@@ -84,7 +84,7 @@ module.exports = {
                     realm: process.env.KC_REALM,
                     publicClient: "false",
                     clientSecret: process.env.KC_CLIENT_SECRET,
-                    scope: "openid profile",
+                    //scope: "openid profile",
                     sslRequired: "external",
                     authServerURL: process.env.KC_AUTH_URL,
                     callbackURL: process.env.KC_CALLBACK_URL,
