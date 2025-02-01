@@ -89,6 +89,12 @@ module.exports = {
                     authServerURL: process.env.KC_AUTH_URL,
                     callbackURL: process.env.KC_CALLBACK_URL,
                     verify: function(accessToken, refreshToken, profile, done) {
+                        console.log(accessToken)
+                        console.log(refreshToken)
+                        console.log(profile)
+                        //if(profile._json.groups.includes("the-group-name")) {
+                        //    profile.username='the-group-name'
+                        //}
                         done(null, profile);
                     }
                 },
