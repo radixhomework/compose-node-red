@@ -77,8 +77,7 @@ module.exports = {
             type:"strategy",
             strategy: {
                 name: "keycloak",
-                label: 'Sign in with Keycloak',
-                icon:"fa-lock",
+                autoLogin: true,
                 strategy: require("passport-keycloak-oauth2-oidc").Strategy,
                 options: {
                     clientID: process.env.KC_CLIENT_ID,
