@@ -8,7 +8,7 @@ services:
       KC_CLIENT_SECRET: ${KC_CLIENT_SECRET}
       KC_AUTH_URL: ${KC_AUTH_URL}
       KC_CALLBACK_URL: ${KC_CALLBACK_URL}
-      KC_ADMIN_GROUP: ${KC_ADMIN_GROUP}
+      KC_ADMIN_ROLE: ${KC_ADMIN_ROLE}
     ports:
       - "${NODERED_PORT}:1880"
     volumes:

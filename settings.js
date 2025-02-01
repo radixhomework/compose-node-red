@@ -89,21 +89,20 @@ module.exports = {
                     authServerURL: process.env.KC_AUTH_URL,
                     callbackURL: process.env.KC_CALLBACK_URL,
                     verify: function(accessToken, refreshToken, profile, done) {
-                        console.log(accessToken)
-                        console.log(refreshToken)
-                        console.log(profile)
-                        //if(profile._json.groups.includes("the-group-name")) {
-                        //    profile.username='the-group-name'
-                        //}
+                        //console.log(accessToken)
+                        //console.log(refreshToken)
+                        //console.log(profile)
+                        if(profile._json.roles.includes(process.env.KC_ADMIN_ROLE)) {
+                            profile.username = 'node-red-admin'
+                        } else {
+                            profile.username = 'node-red-user'
+                        }
                         done(null, profile);
                     }
                 },
             },
             users: [
-                {
-                    roles: [process.env.KC_ADMIN_ROLE],
-                    permissions: ["*"]
-                }
+                { username: 'node-red-admin', permissions: ["*"] }
             ]
         },
     
