@@ -89,9 +89,9 @@ module.exports = {
                     authServerURL: process.env.KC_AUTH_URL,
                     callbackURL: process.env.KC_CALLBACK_URL,
                     verify: function(accessToken, refreshToken, profile, done) {
+                        console.warn(profile)
                         console.warn(accessToken)
                         console.warn(refreshToken)
-                        console.warn(profile)
                         if(profile._json.roles.includes(process.env.KC_ADMIN_ROLE)) {
                             profile.username = 'node-red-admin'
                         } else {
