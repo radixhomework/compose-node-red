@@ -77,7 +77,9 @@ module.exports = {
             type:"strategy",
             strategy: {
                 name: "keycloak",
-                autoLogin: true,
+                //autoLogin: true,
+                label: 'Sign in',
+                icon:"fa-lock",
                 strategy: require("passport-keycloak-oauth2-oidc").Strategy,
                 options: {
                     clientID: process.env.KC_CLIENT_ID,
@@ -350,9 +352,9 @@ module.exports = {
                  */
                 level: "debug",
                 /** Whether or not to include metric events in the log output */
-                metrics: true,
+                metrics: false,
                 /** Whether or not to include audit events in the log output */
-                audit: true
+                audit: false
             }
         },
     
