@@ -1,9 +1,6 @@
 services:
   node-red:
     build: .
-    user: root
-    environment:
-      - TZ=Europe/Amsterdam
     ports:
       - "${NODERED_PORT}:1880"
     volumes:
