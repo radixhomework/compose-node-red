@@ -1,7 +1,6 @@
 services:
   node-red:
     build: .
-    image: nodered/node-red
     environment:
       - TZ=Europe/Amsterdam
     ports:
