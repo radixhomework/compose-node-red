@@ -82,7 +82,7 @@ module.exports = {
                 strategy: require("passport-keycloak-oauth2-oidc").Strategy,
                 options: {
                     clientID: process.env.KC_CLIENT_ID,
-                    realm: process.env.REALM,
+                    realm: process.env.KC_REALM,
                     publicClient: "false",
                     clientSecret: process.env.KC_CLIENT_SECRET,
                     scope: "openid profile",
