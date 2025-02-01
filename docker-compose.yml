@@ -1,6 +1,14 @@
 services:
   node-red:
     build: .
+    environment:
+      TZ: ${TZ}
+      KC_REALM: ${KC_REALM}
+      KC_CLIENT_ID: ${KC_CLIENT_ID}
+      KC_CLIENT_SECRET: ${KC_CLIENT_SECRET}
+      KC_AUTH_URL: ${KC_AUTH_URL}
+      KC_CALLBACK_URL: ${KC_CALLBACK_URL}
+      KC_ADMIN_GROUP: ${KC_ADMIN_GROUP}
     ports:
       - "${NODERED_PORT}:1880"
     volumes:
