@@ -77,7 +77,7 @@ module.exports = {
             type:"strategy",
             strategy: {
                 name: "keycloak",
-                //autoLogin: true,
+                autoLogin: true,
                 label: 'Sign in',
                 icon:"fa-lock",
                 strategy: require("passport-keycloak-oauth2-oidc").Strategy,
@@ -86,14 +86,14 @@ module.exports = {
                     realm: process.env.KC_REALM,
                     publicClient: "false",
                     clientSecret: process.env.KC_CLIENT_SECRET,
-                    //scope: "openid profile",
+                    scope: "openid profile",
                     sslRequired: "external",
                     authServerURL: process.env.KC_AUTH_URL,
                     callbackURL: process.env.KC_CALLBACK_URL,
                     verify: function(accessToken, refreshToken, profile, done) {
-                        //console.warn(profile)
-                        //console.warn(accessToken)
-                        //console.warn(refreshToken)
+                        console.warn(profile)
+                        console.warn(accessToken)
+                        console.warn(refreshToken)
                         //if(profile._json.roles.includes(process.env.KC_ADMIN_ROLE)) {
                         //    profile.username = 'node-red-admin'
                         //} else {
