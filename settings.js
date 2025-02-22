@@ -86,25 +86,25 @@ module.exports = {
                     realm: process.env.KC_REALM,
                     publicClient: "false",
                     clientSecret: process.env.KC_CLIENT_SECRET,
-                    scope: "openid profile",
+                    scope: "openid",
                     sslRequired: "external",
                     authServerURL: process.env.KC_AUTH_URL,
                     callbackURL: process.env.KC_CALLBACK_URL,
                     verify: function(accessToken, refreshToken, profile, done) {
-                        console.warn(profile)
                         console.warn(accessToken)
-                        console.warn(refreshToken)
-                        //if(profile._json.roles.includes(process.env.KC_ADMIN_ROLE)) {
-                        //    profile.username = 'node-red-admin'
-                        //} else {
-                        //    profile.username = 'node-red-user'
-                        //}
+                        // Decode main part of given JWT token
+                        stringAccessToken = JSON.parse(Buffer.from(accessToken.split('.')[1], 'base64').toString())
+                        if(stringAccessToken.realm_access.roles.includes(process.env.KC_ADMIN_ROLE)) {
+                            profile.username = 'node-red-admin'
+                        } else {
+                            profile.username = 'node-red-user'
+                        }
                         done(null, profile);
                     }
                 },
             },
             users: [
-                { username: 'admin', permissions: ["*"] }
+                { username: 'node-red-admin', permissions: ["*"] }
             ]
         },
     
