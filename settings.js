@@ -91,8 +91,11 @@ module.exports = {
                     authServerURL: process.env.KC_AUTH_URL,
                     callbackURL: process.env.KC_CALLBACK_URL,
                     verify: function(accessToken, refreshToken, profile, done) {
-                        console.warn(accessToken)
-                        // Decode main part of given JWT token
+                        // Need to add realm roles to userinfo to use the roles in profile object
+                        // profile._json.realm_access.roles.includes(process.env.KC_ADMIN_ROLE)
+
+                        // Based on OIDC recommendations, using the access token to gather roles from it
+                        // Decode main part of given JWT token to get roles from access token
                         stringAccessToken = JSON.parse(Buffer.from(accessToken.split('.')[1], 'base64').toString())
                         if(stringAccessToken.realm_access.roles.includes(process.env.KC_ADMIN_ROLE)) {
                             profile.username = 'node-red-admin'
