@@ -13,6 +13,7 @@ services:
       - "${NODERED_PORT}:1880"
     volumes:
       - data:/data
+    restart: always
 
 volumes:
   data:
