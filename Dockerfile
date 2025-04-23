@@ -4,10 +4,7 @@ FROM nodered/node-red:4.0.9
 RUN npm install \
     passport-keycloak-oauth2-oidc \
     node-red-contrib-influxdb \
-    node-red-contrib-prometheus-exporter \
-    node-red-contrib-protobuf
+    node-red-contrib-prometheus-exporter
 
 # Copy settings file
 COPY settings.js /data/settings.js
-
-COPY otl_proto /data/opentelemetry/proto
