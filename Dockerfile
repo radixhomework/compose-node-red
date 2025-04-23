@@ -8,3 +8,5 @@ RUN npm install \
 
 # Copy settings file
 COPY settings.js /data/settings.js
+
+COPY metrics.proto /data/metrics.proto
