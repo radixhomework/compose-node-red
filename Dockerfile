@@ -4,6 +4,7 @@ FROM nodered/node-red:4.0.9
 RUN npm install \
     passport-keycloak-oauth2-oidc \
     node-red-contrib-influxdb \
+    node-red-contrib-prometheus-exporter \
     node-red-contrib-protobuf
 
 # Copy settings file
